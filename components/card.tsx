@@ -119,11 +119,9 @@ export function Card({ site, rank }: SiteCardProps) {
 
           {/* Main Content */}
           <div className="h-[130px] flex items-center px-6">
-            {/* RANK NUMBER - 6% - зсунуто до лівого краю */}
+            {/* RANK NUMBER - 6% - простий чорний текст */}
             <div className="flex-[0_0_6%] flex justify-start items-center h-full pr-2">
-              <div className="w-8 h-8 bg-green-primary text-white rounded-md flex items-center justify-center font-bold text-sm">
-                {rank}
-              </div>
+              <div className="text-3xl font-bold text-black">{rank}</div>
             </div>
 
             {/* BOOKMAKER - 19% */}
@@ -216,11 +214,9 @@ export function Card({ site, rank }: SiteCardProps) {
           <div className="p-4 pt-6 min-h-[140px]">
             {/* FLEXBOX Layout for Tablet */}
             <div className="flex items-center mb-3">
-              {/* Rank Number - 6% */}
+              {/* Rank Number - 6% - простий чорний текст */}
               <div className="flex-[0_0_6%] flex justify-start items-center h-full pr-2">
-                <div className="w-7 h-7 bg-green-primary text-white rounded-md flex items-center justify-center font-bold text-sm">
-                  {rank}
-                </div>
+                <div className="text-2xl font-bold text-black">{rank}</div>
               </div>
 
               {/* Logo - 19% */}
@@ -312,18 +308,16 @@ export function Card({ site, rank }: SiteCardProps) {
 
           {/* Main Content Container */}
           <div className="grid grid-cols-[auto_1fr_1fr] h-[175px]">
-            {/* Rank Number Column */}
+            {/* Rank Number Column - на лівому краю */}
             <div className="flex items-center justify-center px-2 bg-[rgb(242,242,242)]">
-              <div className="w-6 h-6 bg-green-primary text-white rounded-md flex items-center justify-center font-bold text-xs">
-                {rank}
-              </div>
+              <div className="text-2xl font-bold text-black">{rank}</div>
             </div>
 
             {/* Left Column: Gray background with logo and rating */}
             <div className="bg-[rgb(242,242,242)] flex flex-col justify-between items-center py-2 px-2">
               {/* Logo */}
-              <div className="flex-1 flex items-center justify-center mt-3">
-                <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-18 w-auto object-contain" />
+              <div className="flex-1 flex items-center justify-center">
+                <img src={site.logo || "/placeholder.svg"} alt={site.name} className="h-16 w-auto object-contain" />
               </div>
 
               {/* Bottom section with stars and rating */}
