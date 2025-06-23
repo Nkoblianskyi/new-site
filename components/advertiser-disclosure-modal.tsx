@@ -30,8 +30,8 @@ export function AdvertiserDisclosureModal({ isOpen, onClose }: AdvertiserDisclos
             <div>
               <h3 className="text-base sm:text-lg font-bold mb-2">How We Make Money</h3>
               <p className="text-sm sm:text-base text-gray-700">
-                IE Best Betting Sites is an independent comparison website that helps users find the best betting sites
-                in Ireland. We may receive compensation when you click on links to betting sites featured on our
+                Betting Best Irish Sites is an independent comparison website that helps users find the best betting
+                sites in Ireland. We may receive compensation when you click on links to betting sites featured on our
                 website.
               </p>
             </div>

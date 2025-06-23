@@ -43,7 +43,7 @@ export default function TermsPage() {
             <div className="prose max-w-none">
               <h2>1. Acceptance of Terms</h2>
               <p>
-                By accessing and using IE Best Betting Sites, you accept and agree to be bound by the terms and
+                By accessing and using Betting Best Irish Sites, you accept and agree to be bound by the terms and
                 provision of this agreement.
               </p>
 
@@ -82,8 +82,8 @@ export default function TermsPage() {
 
               <h2>7. Intellectual Property</h2>
               <p>
-                All content on this website, including text, graphics, logos, and images, is the property of IE Best
-                Betting Sites and is protected by copyright laws.
+                All content on this website, including text, graphics, logos, and images, is the property of Betting
+                Best Irish Sites and is protected by copyright laws.
               </p>
 
               <h2>8. Limitation of Liability</h2>

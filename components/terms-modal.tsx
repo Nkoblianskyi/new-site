@@ -30,7 +30,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
             <div>
               <h3 className="text-base sm:text-lg font-bold mb-2">General Terms</h3>
               <p className="text-sm sm:text-base text-gray-700">
-                By using IE Best Betting Sites, you agree to comply with and be bound by the following terms and
+                By using Betting Best Irish Sites, you agree to comply with and be bound by the following terms and
                 conditions. These terms apply to all users of our website and services.
               </p>
             </div>
@@ -77,8 +77,8 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
             <div>
               <h3 className="text-base sm:text-lg font-bold mb-2">Limitation of Liability</h3>
               <p className="text-sm sm:text-base text-gray-700">
-                IE Best Betting Sites shall not be liable for any direct, indirect, incidental, or consequential damages
-                arising from your use of this website or the information contained herein.
+                Betting Best Irish Sites shall not be liable for any direct, indirect, incidental, or consequential
+                damages arising from your use of this website or the information contained herein.
               </p>
             </div>
 

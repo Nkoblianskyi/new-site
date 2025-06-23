@@ -15,11 +15,10 @@ interface SidebarBannerProps {
 }
 
 export function SidebarBanner({ position, site }: SidebarBannerProps) {
-  console.log(`${position} sidebar data:`, site)
 
   return (
     <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
-      <div className="relative overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-[1.02] cursor-pointer h-[730px] w-full">
+      <div className="relative overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-[1.02] cursor-pointer h-[700px] w-full">
         {/* Background Image */}
         <div
           className="absolute inset-0"

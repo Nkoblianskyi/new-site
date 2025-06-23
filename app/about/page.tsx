@@ -14,7 +14,7 @@ export default function AboutPage() {
 
       <div className="bg-white/95 backdrop-blur-sm rounded-lg p-8 lg:p-12 shadow-lg max-w-4xl mx-auto">
         <div className="prose prose-lg max-w-none">
-          <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">About Bestie Betting Site</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">About Betting Best Irish Sites</h1>
 
           <p className="text-xl text-gray-700 mb-8 text-center font-medium">
             Your premier destination for Irish bookmaker reviews and analysis
@@ -22,9 +22,9 @@ export default function AboutPage() {
 
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Purpose</h2>
           <p className="text-gray-700 leading-relaxed mb-6">
-            At Bestie Betting Site, we are dedicated to delivering the most thorough, reliable, and current information
-            about Ireland's online bookmakers. We recognize that selecting the perfect betting platform can feel
-            overwhelming given the numerous available options, which is precisely why we've committed ourselves to
+            At Betting Best Irish Sites, we are dedicated to delivering the most thorough, reliable, and current
+            information about Ireland's online bookmakers. We recognize that selecting the perfect betting platform can
+            feel overwhelming given the numerous available options, which is precisely why we've committed ourselves to
             simplifying this decision-making process.
           </p>
 

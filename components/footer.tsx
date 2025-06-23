@@ -35,10 +35,10 @@ export function Footer() {
             </div>
             <div>
               <h3 className="text-xl font-bold font-serif tracking-wide">
-                <span className="text-green-primary">Bestie</span>
-                <span className="text-white">Betting</span>
-                <span className="text-orange-500">Site</span>
-                {/* <span className="text-green-primary">Site</span> */}
+                <span className="text-green-primary">Betting</span>
+                <span className="text-white"> Best</span>
+                <span className="text-orange-500"> Irish</span>
+                <span className="text-green-primary"> Sites</span>
               </h3>
             </div>
           </Link>
@@ -63,7 +63,7 @@ export function Footer() {
         {/* Safety Badges */}
 
         <div className="border-t border-gray-700 pt-6 text-center">
-          <p className="text-gray-400 mb-1 text-sm">© 2025 BestieBettingSite.com. All rights reserved.</p>
+          <p className="text-gray-400 mb-1 text-sm">© 2025 BettingBestIrishSites.com. All rights reserved.</p>
           <p className="text-red-400 font-bold text-sm">
             18+ | Irish players only | Gambling can be addictive — Play safe.
           </p>

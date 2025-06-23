@@ -17,8 +17,6 @@ import { HorizontalBanner } from "./horizontal-banner"
 import Link from "next/link"
 import Image from "next/image"
 
-// Додати після імпортів для дебагу
-console.log("Sidebar banners:", verticalSidebarBanners)
 
 export default function IrishBettingComparison() {
   const [isAdvertiserModalOpen, setIsAdvertiserModalOpen] = useState(false)
@@ -314,7 +312,7 @@ export default function IrishBettingComparison() {
             {/* Right Column - Only on screens 1024px+ */}
             <div className="hidden lg:block w-full">
               {/* Add spacing for header height */}
-              <div style={{ height: "64px" }}></div>
+              <div style={{ height: "0px" }}></div>
               {/* Right Sidebar at hero level - ВИКОРИСТОВУЄ BOYLESPORTS (index 1) */}
               <div className="w-full max-w-[160px]">
                 <SidebarBanner position="right" site={verticalSidebarBanners[1]} />

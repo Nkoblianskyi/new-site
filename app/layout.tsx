@@ -1,16 +1,15 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Nunito_Sans } from "next/font/google"
+import { Mulish } from "next/font/google"
 import "./globals.css"
 import { Footer } from "../components/footer"
 import { Header } from "../components/header"
 
-const nunitoSans = Nunito_Sans({ subsets: ["latin"] })
+const mulish = Mulish({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Bestie Betting Site - Top Irish Betting Sites",
+  title: "Betting Best Irish Sites - Top Irish Betting Sites",
   description: "Find the best betting sites in Ireland. Compare bonuses, odds, and features of top Irish bookmakers.",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -20,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={nunitoSans.className}>
+      <body className={mulish.className}>
         <div
           className="min-h-screen relative"
           style={{
