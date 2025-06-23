@@ -119,9 +119,9 @@ export function Card({ site, rank }: SiteCardProps) {
 
           {/* Main Content */}
           <div className="h-[130px] flex items-center px-6">
-            {/* RANK NUMBER - 6% - простий чорний текст */}
-            <div className="flex-[0_0_6%] flex justify-start items-center h-full pr-2">
-              <div className="text-3xl font-bold text-black">{rank}</div>
+            {/* RANK NUMBER - 6% - green square */}
+            <div className="flex-[0_0_6%] flex justify-center items-center h-full pr-2">
+              <div className="rank-number rank-number-desktop">{rank}</div>
             </div>
 
             {/* BOOKMAKER - 19% */}
@@ -214,9 +214,9 @@ export function Card({ site, rank }: SiteCardProps) {
           <div className="p-4 pt-6 min-h-[140px]">
             {/* FLEXBOX Layout for Tablet */}
             <div className="flex items-center mb-3">
-              {/* Rank Number - 6% - простий чорний текст */}
-              <div className="flex-[0_0_6%] flex justify-start items-center h-full pr-2">
-                <div className="text-2xl font-bold text-black">{rank}</div>
+              {/* Rank Number - 6% - green square */}
+              <div className="flex-[0_0_6%] flex justify-center items-center h-full pr-2">
+                <div className="rank-number rank-number-tablet">{rank}</div>
               </div>
 
               {/* Logo - 19% */}
@@ -308,9 +308,9 @@ export function Card({ site, rank }: SiteCardProps) {
 
           {/* Main Content Container */}
           <div className="grid grid-cols-[auto_1fr_1fr] h-[175px]">
-            {/* Rank Number Column - на лівому краю */}
+            {/* Rank Number Column - green square */}
             <div className="flex items-center justify-center px-2 bg-[rgb(242,242,242)]">
-              <div className="text-2xl font-bold text-black">{rank}</div>
+              <div className="rank-number rank-number-mobile">{rank}</div>
             </div>
 
             {/* Left Column: Gray background with logo and rating */}
