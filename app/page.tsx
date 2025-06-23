@@ -1,5 +1,5 @@
-import IrishBettingComparison from "../components/irish-betting-comparison"
+import IrishPage from "../components/irish-page"
 
 export default function Page() {
-  return <IrishBettingComparison />
+  return <IrishPage />
 }

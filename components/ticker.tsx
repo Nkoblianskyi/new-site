@@ -11,7 +11,7 @@ interface Match {
   league: string
 }
 
-export function LiveTicker() {
+export function Ticker() {
   const [matches, setMatches] = useState<Match[]>([])
   const [loading, setLoading] = useState(true)
 

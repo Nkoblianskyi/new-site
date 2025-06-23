@@ -13,7 +13,7 @@ interface SiteCardProps {
   rank: number
 }
 
-export function SiteCard({ site, rank }: SiteCardProps) {
+export function Card({ site, rank }: SiteCardProps) {
   const [isTermsExpanded, setIsTermsExpanded] = useState(false)
   const [showReadMore, setShowReadMore] = useState(false)
   const [isMobile, setIsMobile] = useState(false)

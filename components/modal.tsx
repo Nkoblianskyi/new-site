@@ -13,7 +13,7 @@ interface Top3ModalProps {
   casinoSites: BettingSite[]
 }
 
-export function Top3Modal({ bettingSites, casinoSites }: Top3ModalProps) {
+export function Modal({ bettingSites, casinoSites }: Top3ModalProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [expandedTerms, setExpandedTerms] = useState<{ [key: number]: boolean }>({})
 
