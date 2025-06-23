@@ -56,9 +56,9 @@ export function Card({ site, rank }: SiteCardProps) {
     setIsTermsExpanded(!isTermsExpanded)
   }
 
-  // Updated badge logic: show badges only on positions 1, 2, and 4
-  const shouldShowBadge = rank === 1 || rank === 2 || rank === 4 || rank === 7
-  const getBadgeText = () => {
+  // Updated badge logic: show special badges only on positions 1, 2, and 4
+  const shouldShowSpecialBadge = rank === 1 || rank === 2 || rank === 4 || rank === 7
+  const getSpecialBadgeText = () => {
     if (rank === 1) return "TOP BRAND"
     if (rank === 2) return "EXCLUSIVE OFFER"
     if (rank === 4) return "TRENDING"
@@ -72,13 +72,8 @@ export function Card({ site, rank }: SiteCardProps) {
       {rank === 1 && (
         <div className="hidden md:block bg-black text-white rounded-lg overflow-hidden mb-2">
           <div className="h-[40px] flex items-center px-6">
-            {/* RANK - 6% */}
-            <div className="flex-[0_0_6%] text-left pr-2">
-              <span className="text-xs font-bold"> </span>
-            </div>
-
-            {/* BOOKMAKER - 19% */}
-            <div className="flex-[0_0_19%] text-center pr-2">
+            {/* BOOKMAKER - 30% */}
+            <div className="flex-[0_0_30%] text-center pr-2">
               <span className="text-xs font-bold">BOOKMAKER</span>
             </div>
 
@@ -92,13 +87,13 @@ export function Card({ site, rank }: SiteCardProps) {
               <span className="text-xs font-bold">USER RATING</span>
             </div>
 
-            {/* SCORE - 15% */}
-            <div className="flex-[0_0_15%] text-center px-2">
+            {/* SCORE - 12% */}
+            <div className="flex-[0_0_12%] text-center px-2">
               <span className="text-xs font-bold">SCORE</span>
             </div>
 
-            {/* VISIT SITE - 15% */}
-            <div className="flex-[0_0_15%] text-center pl-2">
+            {/* VISIT SITE - 13% */}
+            <div className="flex-[0_0_13%] text-center pl-2">
               <span className="text-xs font-bold">VISIT SITE</span>
             </div>
           </div>
@@ -110,22 +105,22 @@ export function Card({ site, rank }: SiteCardProps) {
         className={`hidden lg:block ${cardBgColor} rounded-md border shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] relative overflow-hidden cursor-pointer`}
       >
         <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
-          {/* Badge - more square */}
-          {shouldShowBadge && (
-            <div className="absolute top-0 left-0 bg-green-primary text-white px-3 py-1 rounded-tl-md rounded-bl-md text-sm font-bold z-10">
-              {getBadgeText()}
+          {/* Rank Number Badge - завжди показується */}
+          <div className="absolute top-0 left-0 bg-green-primary text-white px-3 py-1 rounded-tl-md rounded-bl-md text-sm font-bold z-10">
+            #{rank}
+          </div>
+
+          {/* Special Badge - показується поруч з номером для певних позицій */}
+          {shouldShowSpecialBadge && (
+            <div className="absolute top-0 left-12 bg-blue-600 text-white px-3 py-1 rounded-tr-md rounded-br-md text-sm font-bold z-10">
+              {getSpecialBadgeText()}
             </div>
           )}
 
           {/* Main Content */}
           <div className="h-[130px] flex items-center px-6">
-            {/* RANK NUMBER - 6% - green square */}
-            <div className="flex-[0_0_6%] flex justify-center items-center h-full pr-2">
-              <div className="rank-number rank-number-desktop">{rank}</div>
-            </div>
-
-            {/* BOOKMAKER - 19% */}
-            <div className="flex-[0_0_19%] flex justify-center items-center h-full pr-2">
+            {/* BOOKMAKER - 30% */}
+            <div className="flex-[0_0_30%] flex justify-center items-center h-full pr-2">
               <img
                 src={site.logo || "/placeholder.svg"}
                 alt={site.name}
@@ -151,19 +146,20 @@ export function Card({ site, rank }: SiteCardProps) {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-4 xl:w-5 h-4 xl:h-5 ${i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
-                      }`}
+                    className={`w-4 xl:w-5 h-4 xl:h-5 ${
+                      i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                    }`}
                   />
                 ))}
               </div>
             </div>
 
-            {/* SCORE - 15% */}
-            <div className="flex-[0_0_15%] text-center flex flex-col justify-center h-full px-2">
+            {/* SCORE - 12% */}
+            <div className="flex-[0_0_12%] text-center flex flex-col justify-center h-full px-1">
               <div
                 className="text-[44px] xl:text-[56px] font-bold leading-none"
                 style={{
-                  fontFamily: "Nunito Sans",
+
                   color: "rgba(34, 197, 94, 1)",
                 }}
               >
@@ -171,9 +167,9 @@ export function Card({ site, rank }: SiteCardProps) {
               </div>
             </div>
 
-            {/* VISIT SITE - 15% */}
-            <div className="flex-[0_0_15%] text-center flex flex-col justify-center items-center h-full pl-2">
-              <Button className="bg-green-primary hover:bg-green-hover text-white font-bold px-2 xl:px-4 py-2 rounded-md text-xs xl:text-sm w-[130px] xl:w-[160px] h-[38px] xl:h-[45px] mb-1 transition-colors">
+            {/* VISIT SITE - 13% */}
+            <div className="flex-[0_0_13%] text-center flex flex-col justify-center items-center h-full pl-1">
+              <Button className="bg-green-primary hover:bg-green-hover text-white font-bold px-1 xl:px-2 py-2 rounded-md text-xs xl:text-sm w-full max-w-[120px] h-[38px] xl:h-[45px] mb-1 transition-colors">
                 GET BONUS
               </Button>
               <div className="text-xs text-gray-500 underline">Visit {site.name}</div>
@@ -204,23 +200,23 @@ export function Card({ site, rank }: SiteCardProps) {
         className={`hidden md:block lg:hidden ${cardBgColor} rounded-md border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] relative overflow-hidden cursor-pointer`}
       >
         <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
-          {/* Badge for top positions - more square */}
-          {shouldShowBadge && (
-            <div className="absolute top-0 left-0 bg-green-primary text-white px-2 py-1 rounded-tl-md rounded-bl-md text-xs font-bold z-10">
-              {getBadgeText()}
+          {/* Rank Number Badge - завжди показується */}
+          <div className="absolute top-0 left-0 bg-green-primary text-white px-2 py-1 rounded-tl-md rounded-bl-md text-xs font-bold z-10">
+            #{rank}
+          </div>
+
+          {/* Special Badge - показується поруч з номером для певних позицій */}
+          {shouldShowSpecialBadge && (
+            <div className="absolute top-0 left-10 bg-blue-600 text-white px-2 py-1 rounded-tr-md rounded-br-md text-xs font-bold z-10">
+              {getSpecialBadgeText()}
             </div>
           )}
 
           <div className="p-4 pt-6 min-h-[140px]">
             {/* FLEXBOX Layout for Tablet */}
             <div className="flex items-center mb-3">
-              {/* Rank Number - 6% - green square */}
-              <div className="flex-[0_0_6%] flex justify-center items-center h-full pr-2">
-                <div className="rank-number rank-number-tablet">{rank}</div>
-              </div>
-
-              {/* Logo - 19% */}
-              <div className="flex-[0_0_19%] flex justify-center items-center h-full pr-2">
+              {/* Logo - 30% */}
+              <div className="flex-[0_0_30%] flex justify-center items-center h-full pr-2">
                 <img
                   src={site.logo || "/placeholder.svg"}
                   alt={site.name}
@@ -244,21 +240,21 @@ export function Card({ site, rank }: SiteCardProps) {
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-4 h-4 ${i < filledStars || (i === filledStars && hasHalfStar)
+                      className={`w-4 h-4 ${
+                        i < filledStars || (i === filledStars && hasHalfStar)
                           ? "fill-yellow-400 text-yellow-400"
                           : "text-gray-300"
-                        }`}
+                      }`}
                     />
                   ))}
                 </div>
               </div>
 
-              {/* Score - 15% */}
-              <div className="flex-[0_0_15%] text-center px-2">
+              {/* Score - 12% */}
+              <div className="flex-[0_0_12%] text-center px-1">
                 <div
                   className="text-[40px] font-bold leading-none"
                   style={{
-                    fontFamily: "Nunito Sans",
                     color: "rgba(34, 197, 94, 1)",
                   }}
                 >
@@ -266,9 +262,9 @@ export function Card({ site, rank }: SiteCardProps) {
                 </div>
               </div>
 
-              {/* Button - 15% */}
-              <div className="flex-[0_0_15%] text-center pl-2">
-                <Button className="bg-green-primary hover:bg-green-hover text-white font-bold px-3 py-2 rounded-md text-xs w-[120px] mx-auto transition-colors">
+              {/* Button - 13% */}
+              <div className="flex-[0_0_13%] text-center pl-1">
+                <Button className="bg-green-primary hover:bg-green-hover text-white font-bold px-2 py-2 rounded-md text-xs w-full max-w-[100px] mx-auto transition-colors">
                   GET BONUS
                 </Button>
               </div>
@@ -299,20 +295,20 @@ export function Card({ site, rank }: SiteCardProps) {
         className={`md:hidden ${cardBgColor} rounded-md border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] relative overflow-hidden cursor-pointer`}
       >
         <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
-          {/* Badge for top positions - more square */}
-          {shouldShowBadge && (
-            <div className="absolute top-0 left-0 bg-green-primary text-white px-2 py-0.5 rounded-tl-md rounded-bl-md text-[10px] font-bold z-20">
-              {getBadgeText()}
+          {/* Rank Number Badge - завжди показується */}
+          <div className="absolute top-0 left-0 bg-green-primary text-white px-2 py-0.5 rounded-tl-md rounded-bl-md text-[10px] font-bold z-20">
+            #{rank}
+          </div>
+
+          {/* Special Badge - показується поруч з номером для певних позицій */}
+          {shouldShowSpecialBadge && (
+            <div className="absolute top-0 left-8 bg-blue-600 text-white px-2 py-0.5 rounded-tr-md rounded-br-md text-[10px] font-bold z-20">
+              {getSpecialBadgeText()}
             </div>
           )}
 
           {/* Main Content Container */}
-          <div className="grid grid-cols-[auto_1fr_1fr] h-[175px]">
-            {/* Rank Number Column - green square */}
-            <div className="flex items-center justify-center px-2 bg-[rgb(242,242,242)]">
-              <div className="rank-number rank-number-mobile">{rank}</div>
-            </div>
-
+          <div className="grid grid-cols-[1fr_1fr] h-[175px]">
             {/* Left Column: Gray background with logo and rating */}
             <div className="bg-[rgb(242,242,242)] flex flex-col justify-between items-center py-2 px-2">
               {/* Logo */}
@@ -329,10 +325,11 @@ export function Card({ site, rank }: SiteCardProps) {
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className={`w-4 h-4 ${i < filledStars || (i === filledStars && hasHalfStar)
+                        className={`w-4 h-4 ${
+                          i < filledStars || (i === filledStars && hasHalfStar)
                             ? "fill-yellow-400 text-yellow-400"
                             : "text-gray-300"
-                          }`}
+                        }`}
                       />
                     ))}
                   </div>
@@ -376,8 +373,9 @@ export function Card({ site, rank }: SiteCardProps) {
         <div className="border-t border-gray-200 bg-gray-100 px-2 py-2">
           <div className="text-center">
             <div
-              className={`text-gray-500 text-[8px] leading-[1.4] transition-all duration-300 ${!isTermsExpanded ? "line-clamp-2" : ""
-                }`}
+              className={`text-gray-500 text-[8px] leading-[1.4] transition-all duration-300 ${
+                !isTermsExpanded ? "line-clamp-2" : ""
+              }`}
             >
               {site.terms}
             </div>

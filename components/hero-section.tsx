@@ -1,7 +1,5 @@
 "use client"
 import { Shield, Clock } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
 
 interface HeroSectionProps {
   onAdvertiserModalOpen: () => void
@@ -156,9 +154,9 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
         </div>
       </div>
 
-      {/* Hero Section - Mobile - ULTRA COMPACT 140px MAX */}
+      {/* Hero Section - Mobile - ULTRA COMPACT 120px MAX */}
       <div
-        className="md:hidden relative overflow-hidden text-white rounded-lg mb-2 w-full h-[140px]"
+        className="md:hidden relative overflow-hidden text-white rounded-lg mb-1 w-full h-[120px]"
         style={{
           backgroundImage: "url(/bg-7.jpg)",
           backgroundSize: "cover",
@@ -170,42 +168,40 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
 
         {/* Combined Header + Hero content - ULTRA COMPACT */}
         <div className="relative z-10 h-full flex flex-col">
-          {/* Header section - COMPACT */}
-
           {/* Hero content - ULTRA COMPACT */}
           <div className="flex-1 px-2 text-center flex flex-col justify-center">
             {/* Main titles - COMPACT */}
-            <div className="mb-2">
-              <h1 className="text-lg font-bold mb-1 drop-shadow-lg leading-tight">
+            <div className="mb-1">
+              <h1 className="text-base font-bold mb-0.5 drop-shadow-lg leading-tight">
                 TOP <span className="text-green-primary">IRISH</span> BOOKMAKERS
               </h1>
-              <h2 className="text-[12px] font-bold drop-shadow-lg leading-tight">
+              <h2 className="text-[10px] font-bold drop-shadow-lg leading-tight">
                 REVIEWED FOR {getCurrentMonthYear()}
               </h2>
             </div>
 
             {/* Feature badges - ULTRA COMPACT */}
-            <div className="flex justify-center gap-3 mb-2">
+            <div className="flex justify-center gap-2 mb-1">
               <div className="flex flex-col items-center">
-                <Shield className="w-4 h-4 mb-0.5" />
-                <span className="text-[8px] font-bold leading-tight">100% Legal</span>
+                <Shield className="w-3 h-3 mb-0.5" />
+                <span className="text-[7px] font-bold leading-tight">100% Legal</span>
               </div>
               <div className="flex flex-col items-center">
                 <div className="flex gap-0.5 mb-0.5">
-                  <div className="w-1 h-3 bg-green-primary"></div>
-                  <div className="w-1 h-3 bg-white"></div>
-                  <div className="w-1 h-3 bg-orange-500"></div>
+                  <div className="w-1 h-2 bg-green-primary"></div>
+                  <div className="w-1 h-2 bg-white"></div>
+                  <div className="w-1 h-2 bg-orange-500"></div>
                 </div>
-                <span className="text-[8px] font-bold leading-tight">IE Regulated</span>
+                <span className="text-[7px] font-bold leading-tight">IE Regulated</span>
               </div>
               <div className="flex flex-col items-center">
-                <Clock className="w-4 h-4 mb-0.5" />
-                <span className="text-[8px] font-bold leading-tight">Fast Withdrawals</span>
+                <Clock className="w-3 h-3 mb-0.5" />
+                <span className="text-[7px] font-bold leading-tight">Fast Withdrawals</span>
               </div>
             </div>
 
             {/* Bottom text - ULTRA COMPACT */}
-            <div className="text-[7px] leading-tight">
+            <div className="text-[6px] leading-tight">
               <div>Play responsibly. Wagering and T&Cs apply.</div>
               <div>
                 <button onClick={onAdvertiserModalOpen} className="underline hover:text-green-400">

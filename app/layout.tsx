@@ -1,11 +1,11 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Mulish } from "next/font/google"
+import { Lato } from "next/font/google"
 import "./globals.css"
 import { Footer } from "../components/footer"
 import { Header } from "../components/header"
 
-const mulish = Mulish({ subsets: ["latin"] })
+const mulish = Lato({ subsets: ["latin"], weight: ["400", "700"] })
 
 export const metadata: Metadata = {
   title: "Betting Best Irish Sites - Top Irish Betting Sites",
