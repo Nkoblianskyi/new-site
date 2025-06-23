@@ -57,16 +57,54 @@ export function Card({ site, rank }: SiteCardProps) {
   }
 
   // Updated badge logic: show badges only on positions 1, 2, and 4
-  const shouldShowBadge = rank === 1 || rank === 2 || rank === 4
+  const shouldShowBadge = rank === 1 || rank === 2 || rank === 4 || rank === 7
   const getBadgeText = () => {
     if (rank === 1) return "TOP BRAND"
     if (rank === 2) return "EXCLUSIVE OFFER"
     if (rank === 4) return "TRENDING"
+    if (rank === 7) return "TOP GROWTH"
     return ""
   }
 
   return (
     <div className="block">
+      {/* Table Header - тільки для першого елемента на desktop/tablet */}
+      {rank === 1 && (
+        <div className="hidden md:block bg-black text-white rounded-lg overflow-hidden mb-2">
+          <div className="h-[40px] flex items-center px-6">
+            {/* RANK - 6% */}
+            <div className="flex-[0_0_6%] text-left pr-2">
+              <span className="text-xs font-bold"> </span>
+            </div>
+
+            {/* BOOKMAKER - 19% */}
+            <div className="flex-[0_0_19%] text-center pr-2">
+              <span className="text-xs font-bold">BOOKMAKER</span>
+            </div>
+
+            {/* BONUS OFFER - 25% */}
+            <div className="flex-[0_0_25%] text-center px-2">
+              <span className="text-xs font-bold">BONUS OFFER</span>
+            </div>
+
+            {/* USER RATING - 20% */}
+            <div className="flex-[0_0_20%] text-center px-2">
+              <span className="text-xs font-bold">USER RATING</span>
+            </div>
+
+            {/* SCORE - 15% */}
+            <div className="flex-[0_0_15%] text-center px-2">
+              <span className="text-xs font-bold">SCORE</span>
+            </div>
+
+            {/* VISIT SITE - 15% */}
+            <div className="flex-[0_0_15%] text-center pl-2">
+              <span className="text-xs font-bold">VISIT SITE</span>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Desktop Layout */}
       <div
         className={`hidden lg:block ${cardBgColor} rounded-md border shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] relative overflow-hidden cursor-pointer`}
@@ -74,22 +112,22 @@ export function Card({ site, rank }: SiteCardProps) {
         <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
           {/* Badge - more square */}
           {shouldShowBadge && (
-            <div className="absolute top-0 left-0 bg-green-primary text-white px-3 py-1 rounded-br-md text-sm font-bold z-10">
+            <div className="absolute top-0 left-0 bg-green-primary text-white px-3 py-1 rounded-tl-md rounded-bl-md text-sm font-bold z-10">
               {getBadgeText()}
             </div>
           )}
 
           {/* Main Content */}
-          <div className="h-[130px] flex items-center px-4 xl:px-6">
-            {/* RANK NUMBER - 6% */}
-            <div className="flex-[0_0_6%] flex justify-center items-center h-full pr-2">
+          <div className="h-[130px] flex items-center px-6">
+            {/* RANK NUMBER - 6% - зсунуто до лівого краю */}
+            <div className="flex-[0_0_6%] flex justify-start items-center h-full pr-2">
               <div className="w-8 h-8 bg-green-primary text-white rounded-md flex items-center justify-center font-bold text-sm">
                 {rank}
               </div>
             </div>
 
-            {/* BOOKMAKER - 22% (reduced from 24%) */}
-            <div className="flex-[0_0_22%] flex justify-center items-center h-full pr-2 xl:pr-4">
+            {/* BOOKMAKER - 19% */}
+            <div className="flex-[0_0_19%] flex justify-center items-center h-full pr-2">
               <img
                 src={site.logo || "/placeholder.svg"}
                 alt={site.name}
@@ -97,8 +135,8 @@ export function Card({ site, rank }: SiteCardProps) {
               />
             </div>
 
-            {/* BONUS OFFER - 22% */}
-            <div className="flex-[0_0_22%] text-center flex flex-col justify-center h-full px-2 xl:px-4">
+            {/* BONUS OFFER - 25% */}
+            <div className="flex-[0_0_25%] text-center flex flex-col justify-center h-full px-2">
               <div className="text-xs text-gray-600 uppercase font-normal mb-1">Welcome Bonus</div>
               <div className="text-lg xl:text-xl font-bold text-gray-900 mb-0.5 leading-tight break-words">
                 {site.bonus}
@@ -108,23 +146,22 @@ export function Card({ site, rank }: SiteCardProps) {
               </div>
             </div>
 
-            {/* USER RATING - 19% */}
-            <div className="flex-[0_0_19%] text-center flex flex-col justify-center h-full px-2 xl:px-4">
+            {/* USER RATING - 20% */}
+            <div className="flex-[0_0_20%] text-center flex flex-col justify-center h-full px-2">
               <div className="text-xs text-black mb-0.5">Rate it! ({formatVotes(site.votes)})</div>
               <div className="flex justify-center gap-0.5 xl:gap-1">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-4 xl:w-5 h-4 xl:h-5 ${
-                      i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
-                    }`}
+                    className={`w-4 xl:w-5 h-4 xl:h-5 ${i < Math.floor(site.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                      }`}
                   />
                 ))}
               </div>
             </div>
 
-            {/* SCORE - 14% */}
-            <div className="flex-[0_0_14%] text-center flex flex-col justify-center h-full px-2 xl:px-4">
+            {/* SCORE - 15% */}
+            <div className="flex-[0_0_15%] text-center flex flex-col justify-center h-full px-2">
               <div
                 className="text-[44px] xl:text-[56px] font-bold leading-none"
                 style={{
@@ -136,8 +173,8 @@ export function Card({ site, rank }: SiteCardProps) {
               </div>
             </div>
 
-            {/* VISIT SITE - 15% (reduced from 21%) */}
-            <div className="flex-[0_0_15%] text-center flex flex-col justify-center items-center h-full pl-2 xl:pl-4">
+            {/* VISIT SITE - 15% */}
+            <div className="flex-[0_0_15%] text-center flex flex-col justify-center items-center h-full pl-2">
               <Button className="bg-green-primary hover:bg-green-hover text-white font-bold px-2 xl:px-4 py-2 rounded-md text-xs xl:text-sm w-[130px] xl:w-[160px] h-[38px] xl:h-[45px] mb-1 transition-colors">
                 GET BONUS
               </Button>
@@ -171,7 +208,7 @@ export function Card({ site, rank }: SiteCardProps) {
         <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
           {/* Badge for top positions - more square */}
           {shouldShowBadge && (
-            <div className="absolute top-0 left-0 bg-green-primary text-white px-2 py-1 rounded-br-md text-xs font-bold z-10">
+            <div className="absolute top-0 left-0 bg-green-primary text-white px-2 py-1 rounded-tl-md rounded-bl-md text-xs font-bold z-10">
               {getBadgeText()}
             </div>
           )}
@@ -179,24 +216,24 @@ export function Card({ site, rank }: SiteCardProps) {
           <div className="p-4 pt-6 min-h-[140px]">
             {/* FLEXBOX Layout for Tablet */}
             <div className="flex items-center mb-3">
-              {/* Rank Number - 8% */}
-              <div className="flex-[0_0_8%] flex justify-center items-center h-full pr-3">
+              {/* Rank Number - 6% */}
+              <div className="flex-[0_0_6%] flex justify-start items-center h-full pr-2">
                 <div className="w-7 h-7 bg-green-primary text-white rounded-md flex items-center justify-center font-bold text-sm">
                   {rank}
                 </div>
               </div>
 
-              {/* Logo - 22% (reduced from 25%) */}
-              <div className="flex-[0_0_22%] flex justify-center items-center h-full pr-3">
+              {/* Logo - 19% */}
+              <div className="flex-[0_0_19%] flex justify-center items-center h-full pr-2">
                 <img
                   src={site.logo || "/placeholder.svg"}
                   alt={site.name}
-                  className="w-[160px] h-[80px] object-contain flex-shrink-0"
+                  className="w-[140px] h-[70px] object-contain flex-shrink-0"
                 />
               </div>
 
-              {/* Bonus - 20% */}
-              <div className="flex-[0_0_20%] text-center px-3">
+              {/* Bonus - 25% */}
+              <div className="flex-[0_0_25%] text-center px-2">
                 <div className="text-xs text-gray-600 uppercase font-normal mb-1">Welcome Bonus</div>
                 <div className="text-base font-bold text-gray-900 mb-0.5 leading-tight break-words">{site.bonus}</div>
                 <div className="text-base font-bold text-gray-900 leading-tight break-words text-nowrap">
@@ -205,24 +242,23 @@ export function Card({ site, rank }: SiteCardProps) {
               </div>
 
               {/* Rating - 20% */}
-              <div className="flex-[0_0_20%] text-center px-3">
+              <div className="flex-[0_0_20%] text-center px-2">
                 <div className="text-xs text-gray-600 mb-0.5">({formatVotes(site.votes)})</div>
                 <div className="flex justify-center gap-0.5">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-4 h-4 ${
-                        i < filledStars || (i === filledStars && hasHalfStar)
+                      className={`w-4 h-4 ${i < filledStars || (i === filledStars && hasHalfStar)
                           ? "fill-yellow-400 text-yellow-400"
                           : "text-gray-300"
-                      }`}
+                        }`}
                     />
                   ))}
                 </div>
               </div>
 
               {/* Score - 15% */}
-              <div className="flex-[0_0_15%] text-center px-3">
+              <div className="flex-[0_0_15%] text-center px-2">
                 <div
                   className="text-[40px] font-bold leading-none"
                   style={{
@@ -234,8 +270,8 @@ export function Card({ site, rank }: SiteCardProps) {
                 </div>
               </div>
 
-              {/* Button - 15% (reduced from 20%) */}
-              <div className="flex-[0_0_15%] text-center pl-3">
+              {/* Button - 15% */}
+              <div className="flex-[0_0_15%] text-center pl-2">
                 <Button className="bg-green-primary hover:bg-green-hover text-white font-bold px-3 py-2 rounded-md text-xs w-[120px] mx-auto transition-colors">
                   GET BONUS
                 </Button>
@@ -269,7 +305,7 @@ export function Card({ site, rank }: SiteCardProps) {
         <Link href={site.link} target="_blank" rel="noopener noreferrer" className="block">
           {/* Badge for top positions - more square */}
           {shouldShowBadge && (
-            <div className="absolute top-0 left-0 bg-green-primary text-white px-2 py-0.5 rounded-br-md text-[10px] font-bold z-20">
+            <div className="absolute top-0 left-0 bg-green-primary text-white px-2 py-0.5 rounded-tl-md rounded-bl-md text-[10px] font-bold z-20">
               {getBadgeText()}
             </div>
           )}
@@ -277,7 +313,7 @@ export function Card({ site, rank }: SiteCardProps) {
           {/* Main Content Container */}
           <div className="grid grid-cols-[auto_1fr_1fr] h-[175px]">
             {/* Rank Number Column */}
-            <div className="flex items-center justify-center px-2">
+            <div className="flex items-center justify-center px-2 bg-[rgb(242,242,242)]">
               <div className="w-6 h-6 bg-green-primary text-white rounded-md flex items-center justify-center font-bold text-xs">
                 {rank}
               </div>
@@ -299,11 +335,10 @@ export function Card({ site, rank }: SiteCardProps) {
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className={`w-4 h-4 ${
-                          i < filledStars || (i === filledStars && hasHalfStar)
+                        className={`w-4 h-4 ${i < filledStars || (i === filledStars && hasHalfStar)
                             ? "fill-yellow-400 text-yellow-400"
                             : "text-gray-300"
-                        }`}
+                          }`}
                       />
                     ))}
                   </div>
@@ -347,9 +382,8 @@ export function Card({ site, rank }: SiteCardProps) {
         <div className="border-t border-gray-200 bg-gray-100 px-2 py-2">
           <div className="text-center">
             <div
-              className={`text-gray-500 text-[8px] leading-[1.4] transition-all duration-300 ${
-                !isTermsExpanded ? "line-clamp-2" : ""
-              }`}
+              className={`text-gray-500 text-[8px] leading-[1.4] transition-all duration-300 ${!isTermsExpanded ? "line-clamp-2" : ""
+                }`}
             >
               {site.terms}
             </div>

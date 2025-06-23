@@ -7,7 +7,6 @@ import { InfoSections } from "./info-sections"
 import { AdvertiserDisclosureModal } from "./advertiser-disclosure-modal"
 import { TermsModal } from "./terms-modal"
 import { bettingSites } from "../data/mock-data"
-import { TableHeader } from "./table-header"
 import { Ticker } from "./ticker"
 import { HeroSection } from "./hero-section"
 import { MainLayout } from "./main-layout"
@@ -29,12 +28,7 @@ export default function IrishPage() {
           <Ticker />
         </div>
 
-        {/* Table Header */}
-        <div className="w-full">
-          <TableHeader />
-        </div>
-
-        {/* Sites List */}
+        {/* Sites List - тепер включає header як частину першої картки */}
         <SitesList />
 
         <InfoSections />
