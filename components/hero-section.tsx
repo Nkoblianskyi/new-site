@@ -117,7 +117,7 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
             <h1 className="text-xl md:text-2xl font-bold">
               TOP <span className="text-green-primary">IRISH</span> BOOKMAKERS
             </h1>
-            <h2 className="text-base md:text-lg font-bold">REVIEWED FOR {getCurrentMonthYear()}</h2>
+            <h2 className="text-lg md:text-xl font-bold">REVIEWED FOR {getCurrentMonthYear()}</h2>
           </div>
 
           {/* Середня частина */}
@@ -169,24 +169,26 @@ export function HeroSection({ onAdvertiserModalOpen, onTermsModalOpen }: HeroSec
         {/* Combined Header + Hero content - ULTRA COMPACT */}
         <div className="relative z-10 h-full flex flex-col">
           {/* Hero content - ULTRA COMPACT */}
-          <div className="flex-1 px-2 text-center flex flex-col justify-center">
+          <div className="flex-1 px-2 text-center flex flex-col justify-around p-2">
             {/* Main titles - COMPACT */}
             <div className="mb-1">
-              <h1 className="text-base font-bold mb-0.5 drop-shadow-lg leading-tight">
+              <h1 className="text-base font-bold drop-shadow-lg leading-tight">
                 TOP <span className="text-green-primary">IRISH</span> BOOKMAKERS
               </h1>
-              <h2 className="text-[10px] font-bold drop-shadow-lg leading-tight">
-                REVIEWED FOR {getCurrentMonthYear()}
-              </h2>
+
             </div>
 
+            <h2 className="text-[13px] font-bold drop-shadow-lg leading-tight">
+              REVIEWED FOR {getCurrentMonthYear()}
+            </h2>
+
             {/* Feature badges - ULTRA COMPACT */}
-            <div className="flex justify-center gap-2 mb-1">
+            <div className="flex justify-center gap-2">
               <div className="flex flex-col items-center">
                 <Shield className="w-3 h-3 mb-0.5" />
                 <span className="text-[7px] font-bold leading-tight">100% Legal</span>
               </div>
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center mt-1">
                 <div className="flex gap-0.5 mb-0.5">
                   <div className="w-1 h-2 bg-green-primary"></div>
                   <div className="w-1 h-2 bg-white"></div>

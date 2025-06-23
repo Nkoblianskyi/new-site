@@ -21,12 +21,12 @@ export function HorizontalBanner({ banner }: HorizontalBannerProps) {
           src={banner.backgroundImage || "/placeholder.svg"}
           alt="Banner"
           fill
-          className="object-cover"
-          style={{ objectPosition: "center" }}
+          className="object-cover "
+          style={{ objectPosition: "center", transform: "scaleX(-1)" }}
         />
 
         {/* Dark overlay for better text visibility */}
-        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 bg-gray-600/10"></div>
 
         {/* Content Container */}
         <div className="relative z-10 h-full flex">
@@ -34,17 +34,17 @@ export function HorizontalBanner({ banner }: HorizontalBannerProps) {
           <div
             className="h-full flex items-center justify-center w-5 sm:w-5 md:w-6 lg:w-8 xl:w-10 relative flex-shrink-0"
             style={{
-              background: "linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)",
-              borderRadius: "0 6px 6px 0",
+              background: "linear-gradient(135deg, #183596 0%, #4488f7 100%)",
+              borderRadius: "0 8px 8px 0",
             }}
           >
             {/* SVG Dotted border - only top, right, bottom */}
             <svg
-              className="absolute inset-0.5"
+              className="absolute inset-0.8"
               style={{
-                width: "calc(100% - 4px)",
-                height: "calc(100% - 4px)",
-                borderRadius: "0 4px 4px 0",
+                width: "calc(100% - 6px)",
+                height: "calc(100% - 6px)",
+                borderRadius: "0 6px 6px 0",
               }}
             >
               {/* Top line */}
@@ -63,6 +63,7 @@ export function HorizontalBanner({ banner }: HorizontalBannerProps) {
                 letterSpacing: "0.05em",
                 transform: "rotate(180deg)",
                 lineHeight: "1",
+                fontFamily: "Ubuntu, sans-serif",
               }}
             >
               SPECIAL OFFER
@@ -83,14 +84,19 @@ export function HorizontalBanner({ banner }: HorizontalBannerProps) {
 
               {/* Offer text */}
               <div className="flex items-center justify-center">
-                <div className="text-white text-[14px] sm:text-[24px] md:text-[30px] lg:text-[32px] xl:text-[38px] font-bold drop-shadow-lg text-center leading-tight">
+                <div className="text-white text-[14px] sm:text-[24px] md:text-[30px] lg:text-[32px] xl:text-[38px] font-bold drop-shadow-2xl text-center leading-tight"
+                  style={{
+                    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                    fontFamily: "Ubuntu, sans-serif",
+                  }}
+                >
                   {banner.welcomeOffer}
                 </div>
               </div>
 
               {/* Button */}
               <div className="flex items-center justify-center">
-                <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-3 py-1 sm:px-[24px] md:px-[32px] lg:px-[36px] xl:px-[44px] sm:py-[6px] md:py-[8px] lg:py-[10px] xl:py-[12px] rounded-full text-[8px] sm:text-[12px] md:text-[14px] lg:text-[14px] xl:text-[16px] transition-colors shadow-lg whitespace-nowrap min-w-[70px] sm:min-w-[120px] md:min-w-[140px] lg:min-w-[140px] xl:min-w-[160px]">
+                <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-3 py-1 sm:px-[24px] md:px-[32px] lg:px-[36px] xl:px-[44px] sm:py-[6px] md:py-[8px] lg:py-[10px] xl:py-[12px] rounded-sm text-[8px] sm:text-[12px] md:text-[14px] lg:text-[14px] xl:text-[16px] transition-colors shadow-lg whitespace-nowrap min-w-[70px] sm:min-w-[120px] md:min-w-[140px] lg:min-w-[140px] xl:min-w-[160px]">
                   CLAIM BONUS
                 </button>
               </div>
