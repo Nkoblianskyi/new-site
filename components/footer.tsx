@@ -15,7 +15,7 @@ export function Footer() {
             <Link href="https://gamcare.org/">
               <img src="/gamecare.svg" alt="GamCare" className="h-8 bg-white rounded px-2 py-1" />
             </Link>
-            <Link href="https://gordonmoody.com/">
+            <Link href="https://gamblingtherapy.org/">
               <img src="/gordon.png" alt="Gordon Moody" className="h-8 bg-white rounded px-2 py-1" />
             </Link>
             <Link href="https://gamblersanonymous.org/">
